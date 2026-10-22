@@ -1,48 +1,32 @@
 # Allegro Daily Analytics
 
-Внутренняя аналитика Allegro для Salvexis OÜ: заказы, продажи, комиссии, платежи и расходы.
+Public documentation for Salvexis OÜ's internal Allegro analytics application.
 
-**Статус: начальная настройка · версия 1.0.0.** В репозитории подготовлены описание проекта и инструкция подключения. Авторизация Allegro и сбор данных пока не запущены.
+| | |
+| --- | --- |
+| Version | 1.0.0 |
+| Owner | Salvexis OÜ |
+| Platform | Allegro REST API |
+| Authentication | OAuth 2.0 Device Flow |
+| Status | Internal application under active development |
 
-## С чего продолжить
+## Documentation
 
-1. Откройте [инструкцию подключения](docs/SETUP.md).
-2. Сформируйте User-Agent в кабинете Allegro с версией `1.0.0` и опубликованной ссылкой на документацию.
-3. После этого настройте OAuth, проверьте доступ к своему аккаунту и только затем переходите к выгрузкам.
+- [Application documentation](docs/allegro-daily-analytics.md) — purpose, data sources, reporting workflow and security.
+- [Connection guide](docs/SETUP.md) — User-Agent configuration and the next integration steps.
 
-[Публичная документация приложения](https://github.com/trs0793/Automated-reporting-in-Airflow/blob/main/docs/allegro-daily-analytics.md)
+Use the following public page in Allegro Developer Apps as **URL dokumentacji**:
 
-## План проекта
+[https://github.com/trs0793/allegro-daily-analytics/blob/main/docs/allegro-daily-analytics.md](https://github.com/trs0793/allegro-daily-analytics/blob/main/docs/allegro-daily-analytics.md)
 
-| Этап | Результат | Статус |
-| --- | --- | --- |
-| Документация | Описание приложения и инструкция настройки | Публичное описание опубликовано, инструкция готова |
-| Подключение | User-Agent, OAuth и проверка аккаунта | Следующий шаг |
-| Заказы | Загрузка заказов и обновлений статусов | Запланировано |
-| Расходы | Комиссии, корректировки и сверка расчётов | Запланировано |
-| Ежедневный отчёт | Проверенные показатели по датам и валютам | Запланировано |
-| One Fulfillment | Доступные через API остатки и логистика | Следующий этап |
-| Сообщения | Чтение и разбор обращений покупателей | Следующий этап |
+## Project Scope
 
-Доступ к рекламе рассматривается отдельно после проверки доступных API и разрешений.
+The planned integration will combine orders, offers, billing, payments and available fulfillment data with internal product costs to support daily profitability reporting in Google Sheets. A later customer service workflow may analyze buyer messages and prepare suggested responses for human review.
 
-## Принципы расчётов
+The first implementation is intended for read operations. Advertising information is an optional source, subject to API availability and access.
 
-- День отчёта определяется в часовом поясе `Europe/Warsaw`.
-- Продажи, платежи и начисления комиссий учитываются раздельно: это разные события.
-- Валюты не суммируются без явно выбранного курса и даты пересчёта.
-- Обновления и корректировки должны загружаться повторно без дублирования.
-- Прибыль можно рассчитывать только после добавления себестоимости и других внешних расходов.
+## Current State
 
-## Доступ и данные
+This repository contains public documentation only. OAuth authorization, production data collection, calculations and scheduled reporting still require implementation and verification.
 
-Первый этап предусматривает чтение данных. Отправка сообщений покупателям и другие операции изменения аккаунта в него не входят.
-
-В репозиторий не добавляются Client Secret, OAuth-токены, реальные выгрузки заказов и данные покупателей. Файлы с секретами и данными хранятся отдельно от истории Git.
-
-Описание опубликовано отдельным файлом `docs/allegro-daily-analytics.md` в публичном репозитории `Automated-reporting-in-Airflow`. Ссылка доступна администраторам Allegro. Этот репозиторий остаётся закрытым; локальная копия описания находится в `docs/allegro-daily-analytics.md`.
-
-## Документы
-
-- [Подключение Allegro](docs/SETUP.md)
-- [Текст описания приложения](docs/allegro-daily-analytics.md)
+Credentials, tokens, customer records and internal financial data must remain outside this public repository.
