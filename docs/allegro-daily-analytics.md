@@ -1,6 +1,6 @@
 # Allegro Daily Analytics
 
-**Dokumentacja aplikacji · wersja 0.1.0**
+**Dokumentacja aplikacji · wersja 1.0.0**
 
 Allegro Daily Analytics to projekt wewnętrznego raportowania dla własnego konta sprzedawcy Allegro. Jego celem jest przygotowywanie dziennych zestawień zamówień, sprzedaży, opłat oraz rozliczeń na podstawie danych udostępnionych przez Allegro REST API.
 
